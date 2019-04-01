@@ -7,43 +7,43 @@
 %%                          torsten@cs.uni-potsdam.de
 \ProvidesPackage{comments}[2001/03/09 v0.7 The comments package]
 
-\newif\ifcomments@widemargins
-\DeclareOption{widemargins}{\comments@widemarginstrue}
-\DeclareOption{nowidemargins}{\comments@widemarginsfalse}
+\newif\ifcomments@adjustmargins
+\DeclareOption{adjustmargins}{\comments@adjustmarginstrue}
+\DeclareOption{noadjustmargins}{\comments@adjustmarginsfalse}
 
-\ExecuteOptions{widemargins} % default is widemargins
+\ExecuteOptions{adjustmargins} % default is adjustmargins
 
 \ProcessOptions\relax
 
 \RequirePackage[normalem]{ulem}
 \RequirePackage{color}
 
+% maximize marginparwidth if adjustmargins were requested
+\ifcomments@adjustmargins%
+
 % we need equal margins in two column mode
 \if@twocolumn
 \newlength{\comments@tmp}
 \addtolength{\comments@tmp}{\dimexpr \numexpr \evensidemargin / 2 \relax sp \relax}
 \addtolength{\comments@tmp}{\dimexpr \numexpr \oddsidemargin / 2 \relax sp \relax}
-\setlength{\oddsidemargin}{\the\comments@tmp}
-\setlength{\evensidemargin}{\the\comments@tmp}
+\setlength{\oddsidemargin}{\comments@tmp}
+\setlength{\evensidemargin}{\comments@tmp}
 \fi
 
-% maximize marginparwidth if widemargins were requested
-\ifcomments@widemargins%
 \newlength{\comments@extrawidth}
 \setlength{\comments@extrawidth}{10mm}
 \newlength{\comments@extrasep}
 \setlength{\comments@extrasep}{2mm}
 \if@twocolumn
 \else
-\addtolength{\oddsidemargin}{-\the\comments@extrawidth}
-\addtolength{\evensidemargin}{\the\comments@extrawidth}
+\addtolength{\oddsidemargin}{-\comments@extrawidth}
+\addtolength{\evensidemargin}{\comments@extrawidth}
 \fi
 \setlength{\marginparwidth}{1in}
-\addtolength{\marginparwidth}{\the\hoffset}
-\addtolength{\marginparwidth}{\the\evensidemargin}
-\addtolength{\marginparwidth}{-\the\comments@extrasep}
-\addtolength{\marginparwidth}{-\the\comments@extrasep}
-\setlength{\marginparsep}{\the\comments@extrasep}
+\addtolength{\marginparwidth}{\hoffset}
+\addtolength{\marginparwidth}{\evensidemargin}
+\addtolength{\marginparwidth}{-2\comments@extrasep}
+\setlength{\marginparsep}{\comments@extrasep}
 \fi
 
 %% -- declarations --------------------------------------------------
