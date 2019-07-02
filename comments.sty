@@ -56,43 +56,43 @@
 \newcounter{commentctr}
 
 %% -- ulem-based commands ---------------------------------------
-\newcommand{\CHD}[1]{\uwave{#1}\comment{CHANGED}}
-\newcommand{\comwave}[2]{\uwave{#1}\comment{#2}}
+\providecommand{\CHD}[1]{\uwave{#1}\comment{CHANGED}}
+\providecommand{\comwave}[2]{\uwave{#1}\comment{#2}}
 
-\newcommand{\DELETE}[2]{\sout{#1}\comment{DELETE{#2}}}
-\newcommand{\DEL}[1]{\DELETE{#1}{\ignorespaces}}
-\newcommand{\DELc}[2]{\DELETE{#1}{\par {#2}}}
-\newcommand{\DELed}[1]{\comment{DELETED}}
-% \newcommand{\DELced}[2]{\comment{DELETEed\par {#2}}\ignorespaces}
-\newcommand{\DELced}[2]{\ignorespaces\comment{DELETED}}
-\newcommand{\noDEL}[2]{{#1}\ignorespaces\comment{NOT~DELETED}}
+\providecommand{\DELETE}[2]{\sout{#1}\comment{DELETE{#2}}}
+\providecommand{\DEL}[1]{\DELETE{#1}{\ignorespaces}}
+\providecommand{\DELc}[2]{\DELETE{#1}{\par {#2}}}
+\providecommand{\DELed}[1]{\comment{DELETED}}
+% \providecommand{\DELced}[2]{\comment{DELETEed\par {#2}}\ignorespaces}
+\providecommand{\DELced}[2]{\ignorespaces\comment{DELETED}}
+\providecommand{\noDEL}[2]{{#1}\ignorespaces\comment{NOT~DELETED}}
 
-\newcommand{\INSERT}[2]{\uline{#1}\comment{INSERT{#2}}}
-\newcommand{\INS}[1]{\INSERT{#1}{\ignorespaces}}
-\newcommand{\INSc}[2]{\INSERT{#1}{\par {#2}}}
-\newcommand{\INSed}[1]{{#1}\comment{INSERTED}}
-% \newcommand{\INSced}[2]{\comment{INSERTED\par {#2}}}
-\newcommand{\INSced}[2]{{#1}\comment{INSERTED}}
+\providecommand{\INSERT}[2]{\uline{#1}\comment{INSERT{#2}}}
+\providecommand{\INS}[1]{\INSERT{#1}{\ignorespaces}}
+\providecommand{\INSc}[2]{\INSERT{#1}{\par {#2}}}
+\providecommand{\INSed}[1]{{#1}\comment{INSERTED}}
+% \providecommand{\INSced}[2]{\comment{INSERTED\par {#2}}}
+\providecommand{\INSced}[2]{{#1}\comment{INSERTED}}
 
-\newcommand{\REWRITE}[2]{\uwave{#1}\comment{REWRITE{#2}}}
-\newcommand{\REW}[1]{\REWRITE{#1}{\ignorespaces}}
-\newcommand{\REWc}[2]{\REWRITE{#1}{\par {#2}}}
-%\newcommand{\REWed}[1]{{#1}\ignorespaces\comment{REWRITTEN}}
-% \newcommand{\REWced}[2]{\comment{REWRITTEN\par {#2}}}
-%\newcommand{\REWced}[2]{{#1}\ignorespaces\comment{REWRITTEN}}
+\providecommand{\REWRITE}[2]{\uwave{#1}\comment{REWRITE{#2}}}
+\providecommand{\REW}[1]{\REWRITE{#1}{\ignorespaces}}
+\providecommand{\REWc}[2]{\REWRITE{#1}{\par {#2}}}
+%\providecommand{\REWed}[1]{{#1}\ignorespaces\comment{REWRITTEN}}
+% \providecommand{\REWced}[2]{\comment{REWRITTEN\par {#2}}}
+%\providecommand{\REWced}[2]{{#1}\ignorespaces\comment{REWRITTEN}}
 
-\newcommand{\REPLACE}[3]{\sout{#1}\comment{REPLACE{#3}}\uline{#2}}
-\newcommand{\REP}[2]{\REPLACE{#1}{#2}{\ignorespaces}}
-\newcommand{\REPc}[3]{\REPLACE{#1}{#2}{\par {#3}}}
-\newcommand{\REPed}[2]{\ignorespaces\comment{REPLACED}{#2}}
-% \newcommand{\REPced}[3]{\comment{REPLACED\par {#3}}{#2}}
-\newcommand{\REPced}[3]{\ignorespaces\comment{REPLACED}{#2}}
-\newcommand{\noREP}[2]{{#1}\comment{NOT~REPLACED}}
+\providecommand{\REPLACE}[3]{\sout{#1}\comment{REPLACE{#3}}\uline{#2}}
+\providecommand{\REP}[2]{\REPLACE{#1}{#2}{\ignorespaces}}
+\providecommand{\REPc}[3]{\REPLACE{#1}{#2}{\par {#3}}}
+\providecommand{\REPed}[2]{\ignorespaces\comment{REPLACED}{#2}}
+% \providecommand{\REPced}[3]{\comment{REPLACED\par {#3}}{#2}}
+\providecommand{\REPced}[3]{\ignorespaces\comment{REPLACED}{#2}}
+\providecommand{\noREP}[2]{{#1}\comment{NOT~REPLACED}}
 
-% \newcommand{\REPd}[2]{\REPLACE{}{#2}{D:\par {#1}}}
+% \providecommand{\REPd}[2]{\REPLACE{}{#2}{D:\par {#1}}}
 
 %% -- commands --------------------------------------------------
-\newcommand{\howmanycoms}{%
+\providecommand{\howmanycoms}{%
 \begin{center}
 \frame{\Large\bf There remain \thecommentctr\ comments to be addressed !!!}
 \message{*** THERE ARE *\thecommentctr* COMMENTS ***}
@@ -100,7 +100,7 @@
 }
 
 % --------------------------------------------------
-\newcommand{\com}[1]%
+\providecommand{\com}[1]%
 {\message{Attention ... COMMENT *\thecommentctr* ...}%
   \mbox{}\\
   \noindent%
@@ -110,14 +110,14 @@
     \addtolength{\@commentparboxwidth}{-2\fboxrule}%
     \parbox{\@commentparboxwidth}{\centering\stepcounter{commentctr}{\BFONT\textcolor{red}{\thecommentctr}: #1\ignorespaces}}}}
 % --------------------------------------------------
-\newcommand{\margincomment}[1]%
+\providecommand{\margincomment}[1]%
 {%
   {\setlength{\fboxsep}{1pt}%
     \marginpar{\raggedright\hspace{0pt}\MFONT{#1}\par}%
     }%
   \ignorespaces}
 % --------------------------------------------------
-\newcommand{\comment}[1]%
+\providecommand{\comment}[1]%
 {%
   \def\@currentlabel{\thecommentctr}% TS 04/06/18 (found in latex.lst)
   \stepcounter{commentctr}%
@@ -129,21 +129,21 @@
   \message{Attention ... COMMENT *\thecommentctr* ...}%
   \ignorespaces}
 % --------------------------------------------------
-\newcommand{\new}[1]{#1\comment{NEW!}}
+\providecommand{\new}[1]{#1\comment{NEW!}}
 % --------------------------------------------------
-\newcommand{\tbf}{\com{TO BE FILLED}}
-\newcommand{\tbfc}[1]{\margincomment{#1}\tbf}
+\providecommand{\tbf}{\com{TO BE FILLED}}
+\providecommand{\tbfc}[1]{\margincomment{#1}\tbf}
 %
-\newcommand{\tbr}{\com{TO BE REFINED}}
-\newcommand{\tbrc}[1]{\margincomment{#1}\tbr}
+\providecommand{\tbr}{\com{TO BE REFINED}}
+\providecommand{\tbrc}[1]{\margincomment{#1}\tbr}
 %
-\newcommand{\tbc}{\com{TO BE COMPLETED}}
-\newcommand{\tbcc}[1]{\margincomment{#1}\tbc}
+\providecommand{\tbc}{\com{TO BE COMPLETED}}
+\providecommand{\tbcc}[1]{\margincomment{#1}\tbc}
 %
-\newcommand{\tbrw}{\com{TO BE REWRITTEN}}
-\newcommand{\tbrwc}[1]{\margincomment{#1}\tbrw}
+\providecommand{\tbrw}{\com{TO BE REWRITTEN}}
+\providecommand{\tbrwc}[1]{\margincomment{#1}\tbrw}
 %
-\newcommand{\comc}[2]{\margincomment{#2}\com{#1}}
+\providecommand{\comc}[2]{\margincomment{#2}\com{#1}}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
